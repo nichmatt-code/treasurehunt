@@ -15,6 +15,10 @@ $paths = [
     'logout' => '<path d="M15 4.5H8a2 2 0 00-2 2v11a2 2 0 002 2h7" /><path d="M9.5 12H20" /><path d="M16.5 8l4 4-4 4" />',
     'close' => '<line x1="6" y1="6" x2="18" y2="18" /><line x1="18" y1="6" x2="6" y2="18" />',
     'shield' => '<path d="M12 3.5 5 6v5.2c0 4.4 3 7.7 7 9.3 4-1.6 7-4.9 7-9.3V6l-7-2.5Z" /><path d="M9 12l2 2 4-4.2" />',
+    'trophy' => '<path d="M7 4h10v5a5 5 0 01-10 0V4Z" /><path d="M7 5H4a3 3 0 003 3M17 5h3a3 3 0 01-3 3" /><path d="M12 14v3M9 20h6M8.5 20c0-1.7 1.5-3 3.5-3s3.5 1.3 3.5 3" />',
+    'clock' => '<circle cx="12" cy="12" r="9" /><path d="M12 7v5l3.5 2" />',
+    'zap' => '<path d="M13 3 5 13.5h5.5L11 21l8-11h-5.5L13 3Z" />',
+    'gamepad' => '<rect x="2.5" y="8" width="19" height="10" rx="5" /><path d="M7.5 11v4M5.5 13h4" /><circle cx="16" cy="11.5" r="1" fill="currentColor" stroke="none" /><circle cx="18.5" cy="14" r="1" fill="currentColor" stroke="none" />',
 ];
 $path = $paths[$name] ?? '';
 @endphp

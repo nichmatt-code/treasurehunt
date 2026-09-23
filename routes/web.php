@@ -3,11 +3,16 @@
 use App\Http\Controllers\Admin\AnswerController as AdminAnswerController;
 use App\Http\Controllers\Admin\ParticipantController as AdminParticipantController;
 use App\Http\Controllers\Admin\QuestionController as AdminQuestionController;
+use App\Http\Controllers\Admin\QuizController as AdminQuizController;
+use App\Http\Controllers\Admin\QuizQuestionController as AdminQuizQuestionController;
 use App\Http\Controllers\Admin\TeamController as AdminTeamController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\Host\QuizGameController as HostQuizGameController;
 use App\Http\Controllers\LeaderboardController;
+use App\Http\Controllers\QuizJoinController;
+use App\Http\Controllers\QuizPlayController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\TeamAnswerController;
 use App\Http\Controllers\TeamChatController;
@@ -45,6 +50,21 @@ Route::post('/game/chat/messages', [TeamChatController::class, 'store'])->name('
 
 Route::get('/leaderboard', [LeaderboardController::class, 'index'])->name('leaderboard.index');
 
+Route::get('/quiz', [QuizJoinController::class, 'index'])->name('quiz.join');
+Route::post('/quiz/join', [QuizJoinController::class, 'store'])->name('quiz.join.store');
+Route::get('/quiz/p/{roomCode}', [QuizPlayController::class, 'show'])->name('quiz.play');
+Route::get('/quiz/p/{roomCode}/state', [QuizPlayController::class, 'state'])->name('quiz.play.state');
+Route::post('/quiz/p/{roomCode}/answer', [QuizPlayController::class, 'answer'])->name('quiz.play.answer');
+
+Route::prefix('host/quiz')->name('host.quiz.')->middleware('admin')->group(function () {
+    Route::get('/', [HostQuizGameController::class, 'index'])->name('index');
+    Route::post('/games', [HostQuizGameController::class, 'store'])->name('games.store');
+    Route::get('/games/{roomCode}', [HostQuizGameController::class, 'show'])->name('show');
+    Route::post('/games/{roomCode}/start', [HostQuizGameController::class, 'start'])->name('start');
+    Route::post('/games/{roomCode}/next', [HostQuizGameController::class, 'next'])->name('next');
+    Route::post('/games/{roomCode}/finish', [HostQuizGameController::class, 'finish'])->name('finish');
+});
+
 Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
     Route::get('/', function () {
         return redirect()->route('admin.teams.index');
@@ -67,4 +87,15 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
 
     Route::get('/answers', [AdminAnswerController::class, 'index'])->name('answers.index');
     Route::patch('/answers/{answer}/grade', [AdminAnswerController::class, 'grade'])->name('answers.grade');
+
+    Route::get('/quizzes', [AdminQuizController::class, 'index'])->name('quizzes.index');
+    Route::post('/quizzes', [AdminQuizController::class, 'store'])->name('quizzes.store');
+    Route::put('/quizzes/{quiz}', [AdminQuizController::class, 'update'])->name('quizzes.update');
+    Route::delete('/quizzes/{quiz}', [AdminQuizController::class, 'destroy'])->name('quizzes.destroy');
+
+    Route::get('/quizzes/{quiz}/questions', [AdminQuizQuestionController::class, 'index'])->name('quizzes.questions');
+    Route::post('/quizzes/{quiz}/questions', [AdminQuizQuestionController::class, 'store'])->name('quizzes.questions.store');
+    Route::put('/quizzes/{quiz}/questions/{question}', [AdminQuizQuestionController::class, 'update'])->name('quizzes.questions.update');
+    Route::delete('/quizzes/{quiz}/questions/{question}', [AdminQuizQuestionController::class, 'destroy'])->name('quizzes.questions.destroy');
+    Route::post('/quizzes/{quiz}/questions/{question}/move', [AdminQuizQuestionController::class, 'move'])->name('quizzes.questions.move');
 });

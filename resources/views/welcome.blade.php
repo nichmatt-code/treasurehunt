@@ -29,6 +29,10 @@
                 <a href="#daftar" class="transition hover:text-white">Daftar</a>
                 <a href="#chat" class="transition hover:text-white">Live Chat</a>
                 <a href="#klasemen" class="transition hover:text-white">Klasemen</a>
+                <a href="{{ route('quiz.join') }}" class="flex items-center gap-1 transition hover:text-white">
+                    <x-icon name="gamepad" class="h-3.5 w-3.5" />
+                    Quiz Rush
+                </a>
             </nav>
             <div class="flex items-center gap-2">
                 <div class="hidden items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 text-xs font-medium text-white/80 sm:flex">
