@@ -29,7 +29,6 @@
                 <a href="#daftar" class="transition hover:text-white">Daftar</a>
                 <a href="#chat" class="transition hover:text-white">Live Chat</a>
                 <a href="#klasemen" class="transition hover:text-white">Klasemen</a>
-                <a href="#coach" class="transition hover:text-white">Coach</a>
             </nav>
             <div class="flex items-center gap-2">
                 <div class="hidden items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 text-xs font-medium text-white/80 sm:flex">
@@ -354,28 +353,6 @@
                     </div>
                 @endforelse
             </div>
-        </div>
-    </section>
-
-    <section id="coach" class="mx-auto max-w-5xl px-4 pb-24 lg:px-8">
-        <div class="mb-8 text-center">
-            <h2 class="font-display text-3xl font-bold">Coach yang Akan Membimbingmu</h2>
-            <p class="mt-2 text-sm text-white/60">Tiga coach siap mendampingi misi kamu.</p>
-        </div>
-        <div class="grid grid-cols-1 gap-5 sm:grid-cols-3">
-            @foreach ([
-                ['name' => 'Nichmatt', 'icon' => 'compass', 'color' => 'text-cyan-300'],
-                ['name' => 'Yoyo', 'icon' => 'search', 'color' => 'text-violet-300'],
-                ['name' => 'Stefani', 'icon' => 'sparkles', 'color' => 'text-pink-300'],
-            ] as $coach)
-                <div class="glass rounded-2xl p-6 text-center transition hover:bg-white/10">
-                    <div class="glass mx-auto flex h-16 w-16 items-center justify-center rounded-full">
-                        <x-icon :name="$coach['icon']" class="h-7 w-7 icon-glow {{ $coach['color'] }}" />
-                    </div>
-                    <p class="font-display mt-4 text-lg font-semibold">{{ $coach['name'] }}</p>
-                    <p class="mt-1 text-xs text-white/50">Coach Mission One</p>
-                </div>
-            @endforeach
         </div>
     </section>
 
