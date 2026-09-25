@@ -367,7 +367,7 @@ async function pollMessages() {
 scrollChatToBottom();
 setInterval(pollMessages, 3000);
 
-const COUNTDOWN_TARGET = new Date('2026-10-21T19:00:00+07:00').getTime();
+const COUNTDOWN_TARGET = new Date('2026-10-21T16:00:00+07:00').getTime();
 const countdownWrapEl = el('countdown-wrap');
 const countdownDoneEl = el('countdown-done');
 const cdDaysEl = el('cd-days');

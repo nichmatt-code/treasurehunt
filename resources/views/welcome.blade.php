@@ -99,7 +99,7 @@
                             <p class="mt-1 text-[10px] uppercase tracking-wider text-white/50 sm:text-xs">Sec</p>
                         </div>
                     </div>
-                    <p class="mt-3 text-xs text-white/40">Menuju 21 Oktober 2026 &middot; 19:00 WIB</p>
+                    <p class="mt-3 text-xs text-white/40">Menuju 21 Oktober 2026 &middot; 16:00 WIB</p>
                 </div>
                 <p id="countdown-done" class="glass mx-auto mt-8 hidden max-w-md rounded-2xl px-5 py-3 text-sm font-semibold text-gradient lg:mx-0">
                     🚀 Misi telah dimulai!

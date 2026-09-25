@@ -26,7 +26,7 @@ class QuizSeeder extends Seeder
             ['question' => 'Mission One diperuntukkan untuk pelajar di kota mana?', 'options' => ['Jakarta', 'BSD', 'Bandung', 'Surabaya'], 'correct' => 1],
             ['question' => 'Ada berapa coach di Mission One?', 'options' => ['2', '3', '4', '5'], 'correct' => 1],
             ['question' => 'Siapa nama coach yang ikonnya kompas?', 'options' => ['Yoyo', 'Stefani', 'Nichmatt', 'Rafael'], 'correct' => 2],
-            ['question' => 'Jam berapa Mission One dimulai (21 Oktober 2026)?', 'options' => ['15:00', '17:00', '19:00', '21:00'], 'correct' => 2],
+            ['question' => 'Jam berapa Mission One dimulai (21 Oktober 2026)?', 'options' => ['15:00', '16:00', '17:00', '19:00'], 'correct' => 1],
         ];
 
         foreach ($questions as $index => $q) {
